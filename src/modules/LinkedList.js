@@ -64,4 +64,19 @@ export default class LinkedList {
     result = tail.value;
     return result;
   }
+  at(index) {
+    if (index < 0) {
+      return undefined;
+    }
+
+    let current = this.headNode;
+    let i = 0;
+
+    while (current && i < index) {
+      current = current.next;
+      i++;
+    }
+    return current ? current.value : undefined;
+  }
+  
 }
