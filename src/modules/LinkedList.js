@@ -2,15 +2,15 @@ import Node from "./node.js";
 
 export default class LinkedList {
   constructor() {
-    this.head = null;
+    this.headNode = null;
   }
   append(value) {
     const newNode = new Node(value);
-    if (!this.head) {
-      this.head = newNode;
+    if (!this.headNode) {
+      this.headNode = newNode;
       return;
     }
-    let current = this.head;
+    let current = this.headNode;
     while (current.next) {
       current = current.next;
     }
@@ -41,12 +41,27 @@ export default class LinkedList {
     return size;
   }
   printList() {
-    let current = this.head;
+    let current = this.headNode;
     let result = "";
     while (current) {
       result += current.value + "->";
       current = current.next;
     }
     console.log(result + "null");
+  }
+  head() {
+    return this.headNode ? this.headNode.value : undefined;
+  }
+  tail() {
+    if (!this.headNode) {
+      return undefined;
+    }
+    let result;
+    let tail = this.headNode;
+    while (tail.next) {
+      tail = tail.next;
+    }
+    result = tail.value;
+    return result;
   }
 }
