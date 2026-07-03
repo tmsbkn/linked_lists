@@ -78,5 +78,13 @@ export default class LinkedList {
     }
     return current ? current.value : undefined;
   }
-  
+
+  pop() {
+    if (!this.headNode) {
+      return undefined;
+    }
+    const output = structuredClone(this.headNode.value);
+    this.headNode = this.headNode.next;
+    return output;
+  }
 }
