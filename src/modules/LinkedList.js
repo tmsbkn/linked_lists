@@ -16,6 +16,30 @@ export default class LinkedList {
     }
     current.next = newNode;
   }
+  prepend(value) {
+    const newNode = new Node(value);
+    if (!this.headNode) {
+      this.headNode = newNode;
+      return;
+    }
+    newNode.next = this.headNode;
+    this.headNode = newNode;
+  }
+
+  size() {
+    let current = this.headNode;
+    let size;
+    if (!this.headNode) {
+      size = 0;
+    } else {
+      size = 1;
+    }
+    while (current.next) {
+      current = current.next;
+      size = size + 1;
+    }
+    return size;
+  }
   printList() {
     let current = this.head;
     let result = "";
