@@ -12,4 +12,8 @@ list.prepend("Rachel");
 list.printList();
 console.log("Size is:", list.size());
 console.log("The head is", list.head(), "with", list.tail(), "in the tail");
+list.pop();
+list.printList();
 console.log(list.at(2));
+console.log(list.contains("Mike"));
+console.log(list.contains("Ruth"));
